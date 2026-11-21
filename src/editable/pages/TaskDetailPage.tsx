@@ -506,18 +506,6 @@ function ListingDetail({ post, related }: { post: SitePost; related: SitePost[] 
               </div>
             ) : null}
 
-            {mapSrc ? (
-              <EditableReveal index={0}>
-                <div className="mt-16 overflow-hidden rounded-[18px] border border-[#e5e7eb] bg-white">
-                  <div className="flex items-center gap-2 border-b border-[#e5e7eb] p-5">
-                    <MapPin className="h-4 w-4 text-[#0a0a0a]" />
-                    <span className="editable-mono text-[#0a0a0a]">On the map</span>
-                    <span className="ml-auto text-sm text-[#5a5a5a]">{address}</span>
-                  </div>
-                  <iframe src={mapSrc} title="Map" loading="lazy" className="h-[380px] w-full border-0" />
-                </div>
-              </EditableReveal>
-            ) : null}
 
             <TagChips post={post} />
           </article>
