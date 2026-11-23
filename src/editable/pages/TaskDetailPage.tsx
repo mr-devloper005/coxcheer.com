@@ -419,7 +419,6 @@ function ListingDetail({ post, related }: { post: SitePost; related: SitePost[] 
   const phone = getField(post, ['phone', 'telephone', 'mobile'])
   const email = getField(post, ['email'])
   const website = getField(post, ['website', 'url'])
-  const hours = getField(post, ['hours', 'openHours', 'schedule'])
   const category = getField(post, ['category']) || 'Independent place'
   const mapSrc = mapSrcFor(post)
   const lead = leadText(post)
@@ -458,10 +457,9 @@ function ListingDetail({ post, related }: { post: SitePost; related: SitePost[] 
         {/* Quick facts strip */}
         <EditableReveal index={0}>
           <div className="mx-auto w-full max-w-[1440px] border-t border-[#e5e7eb] px-5 py-6 sm:px-8 lg:px-16">
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               <QuickFact label="Location" value={address || 'On request'} Icon={MapPin} />
               <QuickFact label="Phone" value={phone || 'On request'} Icon={Phone} />
-              <QuickFact label="Hours" value={hours || 'On request'} Icon={Clock3} />
               <QuickFact label="Verified" value="By the guide" Icon={CheckCircle2} />
             </div>
           </div>
@@ -519,7 +517,6 @@ function ListingDetail({ post, related }: { post: SitePost; related: SitePost[] 
                 {phone ? <ContactRow Icon={Phone} label="Phone" value={phone} href={`tel:${phone}`} /> : null}
                 {email ? <ContactRow Icon={Mail} label="Email" value={email} href={`mailto:${email}`} /> : null}
                 {website ? <ContactRow Icon={Globe2} label="Website" value={website.replace(/^https?:\/\//, '')} href={website} /> : null}
-                {hours ? <ContactRow Icon={Clock3} label="Hours" value={hours} /> : null}
               </div>
               {website ? (
                 <Link href={website} target="_blank" rel="noreferrer" className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#0a0a0a] px-4 py-3 text-[0.85rem] font-medium text-white transition duration-500 hover:bg-[#ffef14] hover:text-[#0a0a0a]">
